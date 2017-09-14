@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
 <struts>
-	<!--指定定义的Action-->
-	<package name="Hello" namespace="/" extends="struts-default">
+	<!--元素用于包配置，指定定义的Action-->
+	<package name="hello" namespace="/" extends="struts-default">
 		<!--定义登录的Action-->
 		<action name="login" class="com.action.LoginAction">
 			<!--定义处理结果和视图资源之间的映射关系-->
 			<result name="success">/success.jsp</result>		
 		</action>	
 	</package>
+	
+	<!--配置引用的其他文件  -->
+	<include file="applicationContext.xml"/>
 
 </struts>    
