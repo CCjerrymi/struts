@@ -24,7 +24,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <div>
     	<h1>Welcomt to struts2.0</h1>
     	<a href="${pageContext.request.contextPath}/login.action">click</a>
+    	<a href="module/html/search.jsp">查询页面</a>
+    </div>
     
+    <div>
     </div>
   </body>
 </html>

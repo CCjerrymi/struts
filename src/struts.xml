@@ -5,12 +5,14 @@
 	<package name="hello" namespace="/" extends="struts-default">
 		<!--定义登录的Action-->
 		<action name="login" class="com.action.LoginAction">
-			<!--定义处理结果和视图资源之间的映射关系-->
+			<!-- 定义处理结果和视图资源之间的映射关系 -->
 			<result name="success">/success.jsp</result>		
+		</action>
+		<!--查询学生信息接口定义-->
+		<action name="search" class="com.action.SearchAction">
+			<!--定义处理结果和视图资源之间的映射关系-->
+			<result name="success">/module/html/search.jsp</result>
 		</action>	
 	</package>
-	
-	<!--配置引用的其他文件  -->
-	<include file="applicationContext.xml"/>
 
 </struts>    
