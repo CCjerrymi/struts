@@ -10,5 +10,53 @@
     <filter-name>struts2</filter-name>
     <url-pattern>/*</url-pattern>
   </filter-mapping>
+   
+  <!--配置过滤器-->
+  <filter>
+  	<filter-name>SessionInvalidate</filter-name>
+  	<filter-class>com.tool.MyFilter</filter-class>
+  	<init-param>
+  		<param-name>checkSessionKey</param-name>
+  		<param-value>users</param-value>
+  	</init-param>
+  	<init-param>
+  		<!--过滤重定向地址-->
+  		<param-name>redirectURL</param-name>
+  		<param-vlaue>/index.jsp</param-vlaue>
+  	</init-param>
+  	<init-parm>
+  	    <!--不需要过滤的jsp-->
+  		<param-name>notCheckURLList</param-name>
+  		<param-name>/index.jsp</param-name>
+  	</init-parm>
+  </filter>
   
-</web-app>
+  <filter-mapping>
+  	<filter-name>SessionInvalidate</filter-name>
+  	<url-patter>*.jsp</url-patter>
+  </filter-mapping>
+  
+  
+  <!--定义struts标签库-->
+  <jsp-config>
+	  <taglib>
+	  	<taglib-uri>/struts-tags</taglib-uri>
+	  	<taglib-location>org.apache.struts2.struts2-core.struts2-core-2.2.1.jar</taglib-location>	
+	  </taglib>
+  </jsp-config>
+  <!--引用Spring的配置文件-->
+     <context-param> 
+        <param-name> 
+            contextConfigLocation 
+        </param-name> 
+        <param-value> 
+            /WEB-INF/applicationContext.xml 
+        </param-value> 
+    </context-param> 
+    <listener> 
+        <listener-class> 
+            org.springframework.web.context.ContextLoaderListener 
+        </listener-class> 
+    </listener>
+
+ </web-app>

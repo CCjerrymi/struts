@@ -15,7 +15,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<meta http-equiv="expires" content="0">    
 	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 	<meta http-equiv="description" content="This is my page">
-	<link rel="stylesheet" type="text/css" href="../css/search.css">
+	<link rel="stylesheet" type="text/css" href="../../css/search.css">
 
   </head>
   
@@ -87,7 +87,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		</div>
 	</div>
   </body>
-  <script type="text/javascript" src="../js/search.js"></script>
-   <script type="text/javascript" src="../js/jquery-2.1.4.js"></script>
-    <script type="text/javascript" src="../js/jquery-2.1.4.min.js"></script>
+  <script type="text/javascript" src="../../js/search.js"></script>
+   <script type="text/javascript" src="../../js/jquery-2.1.4.js"></script>
+    <script type="text/javascript" src="../../js/jquery-2.1.4.min.js"></script>
 </html>

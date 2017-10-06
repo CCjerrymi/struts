@@ -3,16 +3,32 @@
 <struts>
 	<!--元素用于包配置，指定定义的Action-->
 	<package name="hello" namespace="/" extends="struts-default">
+		<!--定义拦截器-->
+		<interceptors>
+			<interceptor name="myInterceptor" class="com.tool.MyInterceptor" />
+			<interceptor-stack name="myStack">
+				<interceptor-ref name="defaultStack"/>
+				<interceptor-ref name="myInterceptor"/>
+			</interceptor-stack>
+		</interceptors>
+
+	    <!-- 定义全局Result -->  
+	   <global-results>  
+            <result name="login">/login.jsp</result>  
+       </global-results> 
 		<!--定义登录的Action-->
 		<action name="login" class="com.action.LoginAction">
 			<!-- 定义处理结果和视图资源之间的映射关系 -->
-			<result name="success">/success.jsp</result>		
+			<result name="success">/module/html/search.jsp</result>
+			<interceptor-ref name="myStack"/>		
 		</action>
 		<!--查询学生信息接口定义-->
 		<action name="search" class="com.action.SearchAction">
 			<!--定义处理结果和视图资源之间的映射关系-->
 			<result name="success">/module/html/search.jsp</result>
-		</action>	
+			<interceptor-ref name="myStack"/>
+		</action>
+		
 	</package>
-
+	
 </struts>    
