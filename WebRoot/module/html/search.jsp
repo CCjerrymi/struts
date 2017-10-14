@@ -1,4 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
+<%@ taglib uri="/struts-tags" prefix="s"%>
 <%@ page import="com.action.SearchAction,com.entity.Student,java.util.ArrayList"%>
 <%
 String path = request.getContextPath();
@@ -15,7 +16,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<meta http-equiv="expires" content="0">    
 	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 	<meta http-equiv="description" content="This is my page">
-	<link rel="stylesheet" type="text/css" href="../../css/search.css">
+	<link rel="stylesheet" type="text/css" href="../css/search.css">
 
   </head>
   
@@ -82,12 +83,26 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						</tr>
 					<%} %>
 					
-				</table>	
+				</table>
+				
+
+			</div>
+			
+			<div>
+				<s:form action="upload" method="post" enctype="multipart/form-data"	>
+					<s:file name="file" label="上传文件"/>
+					<s:submit value="上传"/>
+					<s:reset value="重置"/>					
+				</s:form>
 			</div>	
+			 
+			
 		</div>
+		
+		
 	</div>
   </body>
-  <script type="text/javascript" src="../../js/search.js"></script>
-   <script type="text/javascript" src="../../js/jquery-2.1.4.js"></script>
-    <script type="text/javascript" src="../../js/jquery-2.1.4.min.js"></script>
+  <script type="text/javascript" src="../js/search.js"></script>
+   <script type="text/javascript" src="../js/jquery-2.1.4.js"></script>
+    <script type="text/javascript" src="../js/jquery-2.1.4.min.js"></script>
 </html>

@@ -1,0 +1,14 @@
+#main{
+	width:100%;
+	height:100%;
+}
+
+#info{
+	margin:0 auto;
+	width:500px;
+	height:300px;	
+}
+
+tr{
+	height:35px;
+}

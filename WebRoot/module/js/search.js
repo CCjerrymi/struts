@@ -5,11 +5,13 @@ const greaterOrEqualIteam=new Option("大于等于","4");
 const lessIteam=new Option("小于","5");
 const lessOrEqualIteam=new Option("小于等于","6");
 const basePath="http://localhost:8080/struts/";
-var argumentFlag = -1;
+var argumentFlag = 0;
 
 
 //页面加载时调用方法
 window.onload=function(){
+	//加载的时候获取参数默认参数的类型
+	argumentsChange();
 }
 
 
@@ -49,8 +51,6 @@ function chargeTheOp(value){
 
 	}
 }
-
-
 //清空下拉框中的option
 function clearSelects(){
 	let selects=document.getElementById("selects");
@@ -78,7 +78,9 @@ function searchResult(){
 
 	var arguValue=conditionArgus.get("value");
 	var operatValue=conditionOperator.get("value");
-	if(checkTheEnter(conditionValue.trim())){
+	
+	console.log("输入的条件值为" + conditionValue);
+	if(checkTheEnter(conditionValue)){
 		//验证通过，向后台发送请求
 		$.ajax({
 			url:basePath+"search.action?arguValue=" + arguValue + "&operatValue=" + operatValue + "&conditionValue=" + conditionValue.trim(),//请求地址
@@ -106,13 +108,17 @@ function getSelectedById(selectId){
 
 //参数校验
 function checkTheEnter(enterValue){
-	return true;
+	//return true;
 	//考虑用正则表达式编写，但是教程看起来太头疼了，暂时放弃采用正则表达式校检的方式而采用简单的if判断
 	//根据选择不同的参数对输入的值进行验证
+	console.log("进行参数校检！参数为：" + enterValue);
+	console.log("参数类型标志位:"+argumentFlag);
+	
 	let resultFlag = true;
 	switch(argumentFlag){
 		case 0:{
 			//字符型
+			console.log("参数类型为字符型")
 			if(enterValue==""||enterValue==null){
 				alert("请输入查找条件!");
 				return false;
@@ -122,14 +128,22 @@ function checkTheEnter(enterValue){
 		}
 		case 1:{
 			//整型
-			if(isNaN(enterValue.num.value)){
-				alert("请输入数字");
-				enterValue.num.focus();
+			console.log("参数类型为整型");
+			console.log(isNaN(enterValue));
+			if(enterValue=="" || enterValue==null){
+				alert("請輸入數字");
 				return false;
-			}		
+			}
+			if(isNaN(enterValue)){
+				alert("请输入数字");
+				return false;
+			}
 		}
 		default:return false;
 	}
-	
+  
 }
+
+	
+	
 

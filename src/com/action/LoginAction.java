@@ -1,28 +1,13 @@
 package com.action;
 
+import com.entity.User;
 import com.opensymphony.xwork2.ActionSupport;
+import com.opensymphony.xwork2.ModelDriven;
 import com.service.LoginService;
 
 
-public class LoginAction extends ActionSupport {
-	private String userName;
-	private String password;
-	
-	public String getUserName() {
-		return userName;
-	}
-
-	public void setUserName(String userName) {
-		this.userName = userName;
-	}
-
-	public String getPassword() {
-		return password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
-	}
+public class LoginAction extends ActionSupport implements ModelDriven{
+	private User user = new User();
 
 
 
@@ -32,17 +17,23 @@ public class LoginAction extends ActionSupport {
 	 **/
 	public String execute() throws Exception {
 		System.out.println("login in action");
-		System.out.println("获取到的用户名：" + userName);
-		System.out.println("获取到的密码：" + password);
+		System.out.println("获取到的用户名：" + user.getUserName());
+		System.out.println("获取到的密码：" + user.getPassword());
 		
 		LoginService service = new LoginService();
-		if(service.Login(this.userName,this.password)){
+		if(service.Login(this.user.getUserName(),this.user.getPassword())){
 			System.out.println("登录成功");
 			return "success";
 		}else{
 			System.out.println("登录失败");
 			return "false";
 		}	
+	}
+
+	@Override
+	public Object getModel() {
+		// TODO Auto-generated method stub
+		return user;
 	}
 
 }

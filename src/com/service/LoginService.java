@@ -16,8 +16,7 @@ public class LoginService {
 			return false;
 		}else if("admin".equals(userName) && "admin".equals(password)){
 			HttpSession session = SessionTool.getSesison();
-			session.setAttribute("loginName", userName);
-			session.setAttribute("password", "111111");
+			session.setAttribute("users", userName);
 			return true;
 		}else{
 			return false;

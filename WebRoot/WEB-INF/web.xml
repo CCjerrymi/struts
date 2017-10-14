@@ -12,29 +12,27 @@
   </filter-mapping>
    
   <!--配置过滤器-->
-  <filter>
-  	<filter-name>SessionInvalidate</filter-name>
-  	<filter-class>com.tool.MyFilter</filter-class>
-  	<init-param>
-  		<param-name>checkSessionKey</param-name>
-  		<param-value>users</param-value>
-  	</init-param>
-  	<init-param>
-  		<!--过滤重定向地址-->
-  		<param-name>redirectURL</param-name>
-  		<param-vlaue>/index.jsp</param-vlaue>
-  	</init-param>
-  	<init-parm>
-  	    <!--不需要过滤的jsp-->
-  		<param-name>notCheckURLList</param-name>
-  		<param-name>/index.jsp</param-name>
-  	</init-parm>
-  </filter>
-  
-  <filter-mapping>
-  	<filter-name>SessionInvalidate</filter-name>
-  	<url-patter>*.jsp</url-patter>
-  </filter-mapping>
+ <filter>    
+   <filter-name>SessionInvalidate</filter-name>    
+   <filter-class>com.tool.MyFilter</filter-class> 
+   <init-param>    
+     <param-name>checkSessionKey</param-name>  
+     <param-value>users</param-value>    
+   </init-param>    
+   <init-param>    
+     <param-name>redirectURL</param-name>  
+     <param-value>/index.jsp</param-value>    
+   </init-param>    
+   <init-param>    
+     <param-name>notCheckURLList</param-name> 
+     <param-value>/index.jsp</param-value>    
+   </init-param>    
+ </filter>    
+   
+ <filter-mapping>    
+   <filter-name>SessionInvalidate</filter-name> 
+   <url-pattern>*.jsp</url-pattern>    
+ </filter-mapping> 
   
   
   <!--定义struts标签库-->
