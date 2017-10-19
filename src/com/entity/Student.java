@@ -33,6 +33,10 @@ public class Student {
 		this.age = age;
 	}
 	
+	public String toString(){
+		return "Student[stuNumber=" + stuNumber+ ",stuName=" + stuName+ ",age=" + age + "]"; 
+	}
+	
 	
 
 }

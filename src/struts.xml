@@ -7,7 +7,8 @@
 		<action name="login" class="com.action.LoginAction">
 			<!-- 定义处理结果和视图资源之间的映射关系 -->
 			<!--   -->
-			<result name="success" type="dispatcher"></result>
+			<result name="success" type="redirect">/module/html/search.jsp</result>
+			<result name="false" type="redirect">index.jsp</result>
 			
 		</action>
 		<!--查询学生信息接口定义-->

@@ -9,19 +9,12 @@ function login(){
 	console.log("userName" + userName);
 	console.log("password" + password);
 	if(checkValue(userName,password)){
-		//想后台提交数据
-		$.ajax({
-			url:basePath+"login.action?userName=" + userName + "&password=" + password,
-			type:"GET",
-			success:function(result){
-				alert(result);
-				if(result=="success"){
-					//跳轉頁面
-					windown.location.href=basePath + "/module/html/search.jsp";
-				}
-			}
-		})
+		//向后台提交数据
+		//存在问题:请求后返回的数据为一个今天也想
+		document.getElementById("loginForm").submit();
 	}
+	
+
 	
 }
 

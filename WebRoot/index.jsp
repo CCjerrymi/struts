@@ -25,8 +25,7 @@
 <body>
 	<div id="main">
 		<div id="info">
-			<form>
-				<table align="center">
+				<!-- <table align="center">
 				   <tr>
 						<td><label>用户名</label></td>
 						<td><input type="text" id="userName"/></td>
@@ -38,8 +37,15 @@
 					<tr>
 						<td colspan="2" align="right"><input type="button" value="提交" onClick="login()"/></td>
 					</tr>				
-				</table>
+				</table> -->
+				<form action="login" method="post" name="form1" id="loginForm">
+ 				用户名：
+				<s:textfield name="userName" />
+ 				密码：
+ 				<s:password name="password" />
+ 				<input type="button" onClick="login()" value="登录"/>
 			</form>
+			
 		</div>
 
 	</div>
