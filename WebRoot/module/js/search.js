@@ -1,9 +1,15 @@
-const equalIteam=new Option("等于","0");
+/*const equalIteam=new Option("等于","0");
 const containItem=new Option("包含","1");
 const moreIteam=new Option("大于","3");
 const greaterOrEqualIteam=new Option("大于等于","4");
 const lessIteam=new Option("小于","5");
-const lessOrEqualIteam=new Option("小于等于","6");
+const lessOrEqualIteam=new Option("小于等于","6");*/
+const equalIteam=new Option("等于","=");
+const containItem=new Option("包含","like");
+const moreIteam=new Option("大于",">");
+const greaterOrEqualIteam=new Option("大于等于",">=");
+const lessIteam=new Option("小于","<");
+const lessOrEqualIteam=new Option("小于等于","<=");
 const basePath="http://localhost:8080/struts/";
 var argumentFlag = 0;
 

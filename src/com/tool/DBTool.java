@@ -7,6 +7,4 @@ package com.tool;
  * 
  **/
 public class DBTool {
-	
-
 }
