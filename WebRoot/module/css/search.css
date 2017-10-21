@@ -57,3 +57,27 @@ span{
 	border:1px solid red;
 }
 
+
+
+#loadArear{
+	width:700px;
+	height:300px;
+	border:1px solid red;	
+}
+
+#fileForm{
+	width:500px;
+	margin-top:3px;
+}
+
+#file{
+	width:280px;
+	height:30px;
+}
+
+.myButton{
+	width:68px;
+	height:23px;
+	margin-right:10px;
+	
+}

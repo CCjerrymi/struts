@@ -144,6 +144,38 @@ function checkTheEnter(enterValue){
   
 }
 
+
+//提供下载方法
+function downLoad(){
+	//获取文件名
+	let fileName = document.getElementById("fileName").vlaue;
+	//获取文件格式
+	let selects = document.getElementById("fileType");
+	let index = selects.selectedIndex;//获取索引
+	let text = selects.option[index].text;//获取选中的文本
+	let value = selects.option[index].value;//获取选中值
+	
+	//对输入进行简单的校检
+	if(fileName == null || fileName == ""){
+		alert("请输入文件名！");
+	}else{
+		//验证通过后进行下载
+	}
+}
+
+
+//提供上传方法
+function upload(){
+	let path = document.getElementById("file").value;
+	if(path=="" || file == null) {
+		alert("請選擇文件！");
+	}else{
+		document.getElementById("fileForm").submit();
+	}
+
+
+}
+
 	
 	
 

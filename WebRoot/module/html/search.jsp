@@ -78,8 +78,32 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	   		 			</tr>
 							<% 
 						}%>
+						
 						<tr>
 							<td align="center" colspan="3">共<%=list.size() %>人</td>
+						</tr>
+						<tr>							
+							<td align="center" colspan="3">
+								<span>文件名：</span>
+								<input type="text" id="fileName"/>
+								<span>文件类型：</span>
+								<select id="fileType">
+								  <option value=".txt">.txt</option>
+								  <option value=".jpg">.jpg</option>
+								  <option value=".doc">.doc</option>
+								  <option value=".pdf">.pdf</option>
+								</select>
+															
+								<input type="button" value="下载结果" onClick="downLoad()"/></td>	
+						</tr>
+						</tr>
+							<td align="center" colspan="3">
+								<form action="upload" method="post" enctype="multipart/form-data" id="fileForm">
+									<input type="file" name="file" label="上传文件" id="file"/>
+									<input type="button" value="上传" onClick="upload()" class="myButton"/>
+									<input type="reset" value="重置" class="myButton"/>					
+								</form>
+							</td>
 						</tr>
 					<%} %>
 					
@@ -88,16 +112,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 			</div>
 			
-			<div>
-				<s:form action="upload" method="post" enctype="multipart/form-data"	>
-					<s:file name="file" label="上传文件"/>
-					<s:submit value="上传"/>
-					<s:reset value="重置"/>					
-				</s:form>
-			</div>	
-			 
-			
 		</div>
+		
+
 		
 		
 	</div>
