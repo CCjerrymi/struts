@@ -17,20 +17,17 @@
 			<result name="success" type="redirect">/module/html/search.jsp</result>
 		</action>
 		
-		<!--上传接口-->
-		<action name="load" class="com.action.UploadAction">
-		<result name="success" type="redirect">/module/html/search.jsp</result>
-		<!-- 	<interceptor-ref name="defaultStack">
-				<result name="sucess" type="redirect">/module/html/search.jsp</result>
-				文件上传大小控制 4M
-				<param name="fileUpload.maxmumsize">4394104</param>
-				限制文件上传的扩展名
-				<param name="fileUpload.allowedExtensions">.txt,.doc,.jpg</param>
-				限制文件上传类型
-				<param name="filUpload.allowedTypes">text/plain,application/msword,image/jpg</param>
-			</interceptor-ref> -->
+	</package>
+			
+	<package name="load" namespace="/" extends="struts-default">
+		<action name="upLoad" class="com.action.LoadAction" method="uploadFile">
+		
 		</action>
 		
+		<action name="downLoad" class="com.action.LoadAction" method="downloadFile">
+		
+		</action>
+			
 	</package>
 	
 </struts>    
