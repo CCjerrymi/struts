@@ -1,23 +1,23 @@
 package com.action;
 
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.InputStream;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+
+import javax.annotation.Resource;
 
 import org.apache.struts2.ServletActionContext;
 
-import com.entity.Student;
 import com.opensymphony.xwork2.ActionSupport;
+import com.service.LoadService;
 
 public class LoadAction extends ActionSupport {
 	private static final long serialVersionUID = 1L;
 	private File file;
 	private String fileName;
 	private String fileContentType;
+	
+	@Resource(name="loadService")
+	LoadService loadservice;
 
 	public File getFile() {
 		return file;
@@ -50,6 +50,7 @@ public class LoadAction extends ActionSupport {
 	}
 	
 	public InputStream getDownLoadFile(){
+		//loadservice.
 		return ServletActionContext.getServletContext().getResourceAsStream("");
 	}
 

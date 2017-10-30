@@ -42,6 +42,7 @@
 	  	<taglib-location>org.apache.struts2.struts2-core.struts2-core-2.2.1.jar</taglib-location>	
 	  </taglib>
   </jsp-config>
+  
   <!--引用Spring的配置文件-->
      <context-param> 
         <param-name> 
