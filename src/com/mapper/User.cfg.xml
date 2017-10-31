@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>	
+	<!-- name代表实体名,table代表数据库表格名   -->
+	<class name="com.entity.User" table="user">
+		<!-- name=id代表的是实体类中的属性  ,column=id代表的是tale表中的字段 -->
+		<id name="userId" column="userId">
+			<generator class="assigned" /><!-- 主键生成策略 -->
+		</id>
+		
+		<!--其他属性使用property标签来映射   -->
+		<property name="userName" column="userName" type="string"/>
+		<property name="password" column="password" type="string"/>
+		
+		
+	</class>
+
+
+
+</hibernate-mapping>

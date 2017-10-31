@@ -52,12 +52,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<!--此处可使用EL表达式对返回的结构进行处理-->
 			<!--信息展示部分-->
 			<div id="table">
-				<table width="500" border="1">
+				<table width="600" border="1">
    				    <tr style="color:white" bgcolor="black">
       				 	<td class="tableHead">学号</td>
         			  	<td class="tableHead">姓名</td>
 						<td class="tableHead" align="right">年龄</td>
-						<!-- <th width="80" align="center">操作</th> -->
+						<th class="tableHead" align="center">操作</th>
    		 			</tr>
    		   		   <!--展示从后台获取到的数据-->
    		   		   <%
@@ -71,10 +71,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	      				 	<td class="tableHead"><%=student.getStuNumber()%></th>
 	        			  	<td class="tableHead"><%=student.getStuName()%></th>
 	        			  	<td class="tableHead" align="right"><%=student.getAge()%></th>
-	        			  	<!-- <td width="80" align="center">
-	        			  		<a href="#">编辑</a>
-	        			  		<a href="#">删除</a>	
-	        			  	</td> -->
+	        			  	<td class="tableHead" align="center">
+	        			  		<input type="button" value = "编辑" />
+	        			  		<input type="button" value = "删除"/>
+	        			  	</td> 
 	   		 			</tr>
 							<% 
 						}%>

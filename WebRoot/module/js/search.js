@@ -124,7 +124,7 @@ function checkTheEnter(enterValue){
 	switch(argumentFlag){
 		case 0:{
 			//字符型
-			console.log("参数类型为字符型")
+			console.log("参数类型为字符型");
 			if(enterValue==""||enterValue==null){
 				alert("请输入查找条件!");
 				return false;
@@ -136,14 +136,14 @@ function checkTheEnter(enterValue){
 			//整型
 			console.log("参数类型为整型");
 			console.log(isNaN(enterValue));
-			if(enterValue=="" || enterValue==null){
-				alert("請輸入數字");
-				return false;
-			}
-			if(isNaN(enterValue)){
+			if(enterValue=="" || enterValue==null || isNaN(enterValue)){
 				alert("请输入数字");
 				return false;
 			}
+			else{
+				return true;
+			}
+			
 		}
 		default:return false;
 	}
