@@ -179,8 +179,31 @@ function upload(){
 	}else{
 		document.getElementById("fileForm").submit();
 	}
+}
 
 
+//提供学生修改编辑功能函数
+function edit(stuNumber){
+
+/*	$.ajax({
+		url:basePath+"getStudentByNumber.action?stuNumber = " + stuNumber,//请求地址
+		type:"POST",
+		success:function(){
+			alert("搜索成功！");
+			location.location.href = "edit.jsp";
+		}
+	})*/
+	
+	
+	var f = document.createElement("form");
+	document.body.appendChild(f);
+	var i = document.createElement("input");
+	i.type = "hidden";
+	f.appendChild(i);
+	i.value = stuNumber;
+	i.name = "stuNumber";
+	f.action = "http://localhost:8080/struts/getStudentByNumber.action";
+	f.submit();
 }
 
 	

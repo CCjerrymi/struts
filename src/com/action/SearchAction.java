@@ -13,8 +13,17 @@ import com.service.SearchByHibernateService;
 public class SearchAction  extends ActionSupport {
 	private Student student;
 	public static ArrayList<Student> result = new ArrayList<Student>();
+	public static Student temp = new Student();
+	private String stuNumber;
   
 	
+	 
+	public String getStuNumber() {
+		return stuNumber;
+	}
+	public void setStuNumber(String stuNumber) {
+		this.stuNumber = stuNumber;
+	}
 	public Student getStudent() {
 		return student;
 	}
@@ -47,6 +56,17 @@ public class SearchAction  extends ActionSupport {
 		
 		
 		System.out.println(this.result.toString());
+		return "success";
+	}
+	
+	
+	
+	public String getStudentByNumber(){
+	/*	HttpServletRequest request = ServletActionContext.getRequest();
+		String stuNumber = (String)request.getAttribute("stuNumber");*/
+		SearchByHibernateService service = new SearchByHibernateService();
+		Student stu = service.getStudentByNumber(stuNumber);
+		this.temp = stu;
 		return "success";
 	}
 	

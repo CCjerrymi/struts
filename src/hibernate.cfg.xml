@@ -40,5 +40,6 @@
 		<!-- 用来关联mapper配置文件   -->
 		<mapping resource="com/mapper/Student.cfg.xml"/>
 		<mapping resource="com/mapper/User.cfg.xml"/>
+		<mapping resource="com/mapper/Grade.cfg.xml"/>
 	</session-factory>
 </hibernate-configuration>

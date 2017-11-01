@@ -50,5 +50,22 @@ public class SearchByHibernateService {
 		return list;
 		
 	}
+	
+	
+	public Student getStudentByNumber(String stuNumber){
+		//1.加载hibernate.cfg.xml配置
+		Configuration config = new Configuration().configure();
+		//2.获取sessionFactory
+		SessionFactory sessionFactory = config.buildSessionFactory();
+		//3.得到一个session
+		Session session = sessionFactory.openSession();
+		String hql = "from Student where stuNumber = " + stuNumber;
+		Query query = session.createQuery(hql);
+		//使用query.list方法查询数据并将数据存入一个list集合
+		List<Student> list = query.list();
+		
+		
+		return list.get(0);
+	}
 
 }

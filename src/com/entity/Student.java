@@ -1,9 +1,14 @@
 package com.entity;
 
+import com.entity.Grade;
+
 public class Student {
 	private String stuName;
 	private String stuNumber;
+	private int stuClassNumber;
 	private int age;
+	private Grade grade;
+	//private Set<Grade> grade = new HashSet<Grade>();
 	
 	public Student(){
 	}
@@ -33,6 +38,24 @@ public class Student {
 		this.age = age;
 	}
 	
+	
+	public int getStuClassNumber() {
+		return stuClassNumber;
+	}
+
+	public void setStuClassNumber(int stuClassNumber) {
+		this.stuClassNumber = stuClassNumber;
+	}
+	
+	
+	public Grade getGrade() {
+		return grade;
+	}
+
+	public void setGrade(Grade grade) {
+		this.grade = grade;
+	}
+
 	public String toString(){
 		return "Student[stuNumber=" + stuNumber+ ",stuName=" + stuName+ ",age=" + age + "]"; 
 	}

@@ -54,6 +54,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<div id="table">
 				<table width="600" border="1">
    				    <tr style="color:white" bgcolor="black">
+   				   		<td class="tableHead">班级</td>
       				 	<td class="tableHead">学号</td>
         			  	<td class="tableHead">姓名</td>
 						<td class="tableHead" align="right">年龄</td>
@@ -68,12 +69,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							Student student = list.get(index);
 							%>
 						<tr>
-	      				 	<td class="tableHead"><%=student.getStuNumber()%></th>
-	        			  	<td class="tableHead"><%=student.getStuName()%></th>
-	        			  	<td class="tableHead" align="right"><%=student.getAge()%></th>
+							<td class="tableHead" id="stuClassNumber"><%=student.getStuClassNumber()%></th>
+	      				 	<td class="tableHead" id="stuNumber"><%=student.getStuNumber()%></th>
+	        			  	<td class="tableHead" id="stuName"><%=student.getStuName()%></th>
+	        			  	<td class="tableHead" align="right" id="age"><%=student.getAge()%></th>
 	        			  	<td class="tableHead" align="center">
-	        			  		<input type="button" value = "编辑" />
-	        			  		<input type="button" value = "删除"/>
+	        			  		<input type="button" value = "编辑" onClick="edit(<%=student.getStuNumber()%>)"/>
+	        			  		<input type="button" value = "删除" onClick="delete(<%=student.getStuNumber()%>)"/>
 	        			  	</td> 
 	   		 			</tr>
 							<% 

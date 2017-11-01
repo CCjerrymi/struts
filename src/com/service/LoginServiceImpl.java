@@ -25,6 +25,8 @@ public class LoginServiceImpl implements LoginService{
 		//3.得到一个session
 		Session session = sessionFactory.openSession();
 		User user = (User)session.get(User.class,"001");
+		session.close();
+		sessionFactory.close();
 		
 		if(user.getUserName().equals(userName) && user.getPassword().equals(password)){
 			HttpSession httpSession = SessionTool.getSesison();

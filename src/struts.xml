@@ -7,8 +7,8 @@
 		<action name="login" class="com.action.LoginAction">
 			<!-- 定义处理结果和视图资源之间的映射关系 -->
 			<!--   -->
-			<result name="success" type="redirect">/module/html/search.jsp</result>
-			<result name="false" type="redirect">index.jsp</result>
+			<result name="success" type="redirect">/module/html/grade.jsp</result>
+			<result name="false" type="redirect">grade.jsp</result>
 			
 		</action>
 		<!--查询学生信息接口定义-->
@@ -17,17 +17,41 @@
 			<result name="success" type="redirect">/module/html/search.jsp</result>
 		</action>
 		
+		<action name="getStudentByNumber" class="com.action.SearchAction" method="getStudentByNumber">
+			<!--定义处理结果和视图资源之间的映射关系-->
+			<result name="success" type="redirect">/module/html/edit.jsp</result>
+		</action>
+		
 	</package>
 			
 	<package name="load" namespace="/" extends="struts-default">
 		<action name="upLoad" class="com.action.LoadAction" method="uploadFile">
-		
+			
 		</action>
 		
 		<action name="downLoad" class="com.action.LoadAction" method="downloadFile">
 		
 		</action>
 			
+	</package>
+	
+	<package name="student" namespace="/" extends="struts-default">
+		<action name="updateStudent" class="com.action.StudentManager">
+			<result name="success" type="redirect">/module/html/search.jsp</result>
+		</action>
+		<action name="addStudent" class="com.action.StudentManager" method="addStudent">
+			<result name="success" type="redirect">/module/html/search.jsp</result>
+		</action>
+		<action name="deleteStudent" class="com.action.StudentManager" method="deleteStudent">
+			<result name="success" type="redirect">/module/html/search.jsp</result>
+		</action>
+			
+	</package>
+	
+	<package name="grade" namespace="/" extends="struts-default">
+		<action name="getAllGradeInfo" class="com.action.GradeMangerAction">
+			<result>/module/html/grade.jsp</result>
+		</action>
 	</package>
 	
 </struts>    
