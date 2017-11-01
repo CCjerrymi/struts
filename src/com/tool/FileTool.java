@@ -13,7 +13,7 @@ import com.entity.Student;
 
 public class FileTool {
 	
-	public static List<Object> analysisFile(File file){
+	public static List<Student> analysisFile(File file){
 		String enconding = "UTF-8";
 		//存储从文件中读取出来的Student对象
 		List<Map<String,Object>> list = new ArrayList<Map<String,Object>>();
@@ -112,17 +112,19 @@ public class FileTool {
 	}
 	
 	
-	protected static List<Object> analysisStudent(List<Map<String,Object>> list){
-		List<Object> myList = new ArrayList<Object>();
+	protected static List<Student> analysisStudent(List<Map<String,Object>> list){
+		List<Student> myList = new ArrayList<Student>();
 		//直接遍历list取值
 		for(int index = 0; index < list.size();index++){
 			//获取每一个map
 			Map map = list.get(index);
 			String stuName = (String)map.get("stuName");
 			String stuNumber = (String)map.get("stuNumber");
+			int stuClassNumber = (int)map.get("stuClassNumber");
 			int age = (int)map.get("age");
 			
 			Student student = new Student(stuName,stuNumber,age);
+			student.setStuClassNumber(stuClassNumber);
 			myList.add(student);
 		}
 		return myList;

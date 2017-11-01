@@ -1,12 +1,14 @@
 package com.action;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.entity.Grade;
 import com.opensymphony.xwork2.ActionSupport;
+import com.service.GradeManagerServiceImpl;
 
 public class GradeMangerAction extends ActionSupport{
-	private List<Grade> grades;
+	private static List<Grade> grades = new ArrayList<Grade>();
 	
 	public List<Grade> getGrades() {
 		return grades;
@@ -18,8 +20,17 @@ public class GradeMangerAction extends ActionSupport{
 
 
 	public String getAllGradeInfo(){
-		System.out.println("Success!");
-		return "";
+		GradeManagerServiceImpl service = new GradeManagerServiceImpl();
+		try{
+			this.grades = service.getAllGradeInfo();
+			System.out.println("Success!");
+			return "success";
+			
+		}catch(Exception e){
+			e.printStackTrace();
+			return "success";
+		}
+		
 	}
 
 }

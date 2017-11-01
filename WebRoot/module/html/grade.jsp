@@ -1,6 +1,6 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
 <%@ taglib uri="/struts-tags" prefix="s"%>
-<%@ page import="com.entity.Grade"%>
+<%@ page import="com.entity.Grade,com.action.GradeMangerAction"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -29,20 +29,39 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<table>
 			<tr>
 				<th>班级信息表</th>
+				<td><input type="button" value="点击查看所有班级信息" onclick="getAllInfo()"/></td>
 			</tr>
 			<tr>
 				<td>班级号</td>
 				<td>说明</td>
 				<td>操作</td>
 			</tr>
-			<s:iterator var="grade" value="grades">
-				<tr>
-					<td class="classId"><s:property value="#grade.classId"/></td>
-					<td class="className"><s:property value="#grade.className"/></td>
-				</tr>
-			</s:iterator>
+			 	<%
+					GradeMangerAction action = new GradeMangerAction();
+					List<Grade> list = action.getGrades();
+					if(list.size()>0 || list!=null){
+						for(int index = 0;index < list.size();index++){
+							Grade grade = list.get(index);
+							%>
+						<tr>
+							<td class="tableHead" id="classNumber"><%=grade.getClassNumber()%></th>
+	      				 	<td class="tableHead" id="className"><%=grade.getClassName()%></th>
+	        			  	<td class="tableHead" align="center">
+	        			  		<input type="button" value = "查看学生" onclick="getStudents(<%=grade.getClassNumber()%>)"/>
+	        			  		<input type="button" value = "添加学生"  onclick="addStudent(<%=grade.getClassNumber()%>)"/>
+	        			  		<input type="button" value = "删除班级"  onclick="deleteGrade(<%=grade.getClassNumber()%>)"/>
+	        			  	</td> 
+	   		 			</tr>
+	   		 		<%
+	   		 		}} %>
+				
 		</table>
 
 	</div>
   </body>
+  
+  <%-- <script type="text/javascript" src="/struts/module/js/grade.js"></script> --%>
+    <script type="text/javascript" src="/struts/module/js/grade.js"></script>
+   <script type="text/javascript" src="/struts/module/js/jquery-2.1.4.js"></script>
+    <script type="text/javascript" src="/struts/module/js/jquery-2.1.4.min.js"></script>
 </html>

@@ -5,18 +5,18 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class Grade implements Serializable {
-	private int classId;
+	private String classId;
 	private String className;
 	private String classNumber;
 	private Set<Student> students;
 
 	
 
-	public int getClassId() {
+	public String getClassId() {
 		return classId;
 	}
 
-	public void setClassId(int classId) {
+	public void setClassId(String classId) {
 		this.classId = classId;
 	}
 
@@ -48,7 +48,7 @@ public class Grade implements Serializable {
 		this.students = students;
 	}
 
-	public Grade(int classId, String className, String classNumber) {
+	public Grade(String classId, String className, String classNumber) {
 		super();
 		this.classId = classId;
 		this.className = className;

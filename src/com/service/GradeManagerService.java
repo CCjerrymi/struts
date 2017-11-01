@@ -6,5 +6,5 @@ import java.util.List;
 import com.entity.Grade;
 
 public interface GradeManagerService {
-	public List<Grade> list = new ArrayList<Grade>();
+	public List<Grade> getAllGradeInfo();
 }

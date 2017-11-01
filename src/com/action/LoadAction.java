@@ -9,6 +9,7 @@ import org.apache.struts2.ServletActionContext;
 
 import com.opensymphony.xwork2.ActionSupport;
 import com.service.LoadService;
+import com.service.LoadServiceImpl;
 
 public class LoadAction extends ActionSupport {
 	private static final long serialVersionUID = 1L;
@@ -45,8 +46,9 @@ public class LoadAction extends ActionSupport {
 
 
 	public String uploadFile(){
-		
-		return "";
+		LoadServiceImpl service = new LoadServiceImpl();
+		service.upload(file);
+		return "success"; 
 	}
 	
 	public InputStream getDownLoadFile(){

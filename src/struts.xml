@@ -49,8 +49,11 @@
 	</package>
 	
 	<package name="grade" namespace="/" extends="struts-default">
-		<action name="getAllGradeInfo" class="com.action.GradeMangerAction">
-			<result>/module/html/grade.jsp</result>
+		<action name="getAllGradeInfo" class="com.action.GradeMangerAction" method="getAllGradeInfo">
+			<result type="dispatcher">/module/html/grade.jsp</result>
+		</action>
+		<action name="getStudentsByClassNumber" class="com.action.SearchAction" method="getStudentsByClassNumber">
+			<result name="success" type="redirect">/module/html/search.jsp</result>
 		</action>
 	</package>
 	

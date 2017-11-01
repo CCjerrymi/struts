@@ -44,7 +44,7 @@
   </jsp-config>
   
   <!--引用Spring的配置文件-->
-     <context-param> 
+<!--     <context-param> 
         <param-name> 
             contextConfigLocation 
         </param-name> 
@@ -56,6 +56,6 @@
         <listener-class> 
             org.springframework.web.context.ContextLoaderListener 
         </listener-class> 
-    </listener>
+    </listener> -->
 
  </web-app>
