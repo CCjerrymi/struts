@@ -52,7 +52,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<!--此处可使用EL表达式对返回的结构进行处理-->
 			<!--信息展示部分-->
 			<div id="table">
-				<table width="600" border="1">
+				<table width="620" border="1">
    				    <tr style="color:white" bgcolor="black">
    				   		<td class="tableHead">班级</td>
       				 	<td class="tableHead">学号</td>
@@ -74,34 +74,38 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	        			  	<td class="tableHead" id="stuName"><%=student.getStuName()%></th>
 	        			  	<td class="tableHead" align="right" id="age"><%=student.getAge()%></th>
 	        			  	<td class="tableHead" align="center">
-	        			  		<input type="button" value = "编辑" onClick="edit(<%=student.getStuNumber()%>)"/>
-	        			  		<input type="button" value = "删除" onClick="delete(<%=student.getStuNumber()%>)"/>
+	        			  		<input type="button" id="opb" value = "编辑" onClick="edit(<%=student.getStuNumber()%>)"/>
+	        			  		<input type="button" id="opb" value = "删除" onClick="deleteStu(<%=student.getStuNumber()%>)"/>
 	        			  	</td> 
 	   		 			</tr>
 							<% 
 						}%>
 						
 						<tr>
-							<td align="center" colspan="3">共<%=list.size() %>人</td>
+							<td align="center" colspan="4">共<%=list.size() %>人</td>
+							<td align="center"><!-- <input type="button" value="下载" onClick="downLoad()"/> -->
+								<a href="http://localhost:8080/struts/downLoadAction.action?filename=struts2.txt">下载</a>
+								<!-- <input type="button" value="上传" id="startUp" onClick="clickLoad()"/></td> -->
 						</tr>
+						<%--
 						<tr>							
-							<td align="center" colspan="3">
+							<td align="center" colspan="5">
 								<span>文件名：</span>
 								<input type="text" id="fileName"/>
 								<span>文件类型：</span>
-								<select id="fileType">
+								 <select id="fileType">
 								  <option value=".txt">.txt</option>
 								  <option value=".jpg">.jpg</option>
 								  <option value=".doc">.doc</option>
 								  <option value=".pdf">.pdf</option>
-								</select>
+								</select> 
 															
-								<input type="button" value="下载结果" onClick="downLoad()"/></td>	
-						</tr>
-						</tr>
-							<td align="center" colspan="3">
-								<form action="upload" method="post" enctype="multipart/form-data" id="fileForm">
-									<input type="file" name="file" label="上传文件" id="file"/>
+								<input type="button" value="下载结果" onClick="downLoad()"/></td>	</tr>--%>
+						
+						<tr id="upload">
+							<td align="center" colspan="5">
+								<form action="http://localhost:8080/struts/uploadFile.action" method="post" enctype="multipart/form-data" id="fileForm">
+									<input type="file" name="file" id="okUp" label="上传文件" id="file"/>
 									<input type="button" value="上传" onClick="upload()" class="myButton"/>
 									<input type="reset" value="重置" class="myButton"/>					
 								</form>

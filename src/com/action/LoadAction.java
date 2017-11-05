@@ -51,9 +51,9 @@ public class LoadAction extends ActionSupport {
 		return "success"; 
 	}
 	
-	public InputStream getDownLoadFile(){
+/*	public InputStream getDownLoadFile(){
 		//loadservice.
-		return ServletActionContext.getServletContext().getResourceAsStream("");
+		return ServletActionContext.getServletContext().getResourceAsStream("/upload/Struts.txt");
 	}
-
+*/
 }

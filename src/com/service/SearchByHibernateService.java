@@ -75,7 +75,7 @@ public class SearchByHibernateService {
 		SessionFactory sessionFactory = config.buildSessionFactory();
 		//3.得到一个session
 		Session session = sessionFactory.openSession();
-		String hql = "from Student where classNumber = " + classNumber;
+		String hql = "from Student where stuClassNumber = " + classNumber;
 		Query query = session.createQuery(hql);
 		//使用query.list方法查询数据并将数据存入一个list集合
 		List<Student> list = query.list();

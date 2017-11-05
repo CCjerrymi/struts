@@ -11,7 +11,7 @@
 		<!--其他属性使用property标签来映射   -->
 		<property name="stuName" column="stuName" type="string"/>
 		<property name="age" column="age" type="int"/>
-		<property name="stuClassNumber" column="stuClassNumber" type="int"/>
+		<property name="stuClassNumber" column="stuClassNumber" type="string"/>
 		
 		<many-to-one name="grade" class="com.entity.Grade" column="classNumber"/>
 	</class>

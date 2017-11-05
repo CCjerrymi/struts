@@ -16,10 +16,16 @@ var argumentFlag = 0;
 
 //页面加载时调用方法
 window.onload=function(){
+	//document.getElementById("upload").style.display = "hidden";
 	//加载的时候获取参数默认参数的类型
 	argumentsChange();
 }
 
+function clickLoad(){
+	document.getElementById("okUp").click();
+	//upload
+	document.getElementById("upload").style.visibility = "visible";
+}
 
 function argumentsChange(){
 	console.log("页面调用js方法！");
@@ -92,7 +98,7 @@ function searchResult(){
 			url:basePath+"search.action?arguValue=" + arguValue + "&operatValue=" + operatValue + "&conditionValue=" + conditionValue.trim(),//请求地址
 			type:"POST",
 			success:function(){
-				alert("搜索成功！");
+				//alert("搜索成功！");
 				location.reload();
 			}
 		})
@@ -153,7 +159,7 @@ function checkTheEnter(enterValue){
 
 //提供下载方法
 function downLoad(){
-	//获取文件名
+/*	//获取文件名
 	let fileName = document.getElementById("fileName").value;
 	//获取文件格式
 	let selects = document.getElementById("fileType");
@@ -167,15 +173,18 @@ function downLoad(){
 	}else{
 		//验证通过后进行下载，请求后天接口，
 		 传送下载结果
-	}
+	}*/
+	var link= $('<a href="'+$scope.url+'" target="_blank"></a>');
+	link.get(0).click();
 }
 
 
 //提供上传方法
 function upload(){
+	
 	let path = document.getElementById("file").value;
 	if(path=="" || file == null) {
-		alert("請選擇文件！");
+		alert("请选择文件！");
 	}else{
 		document.getElementById("fileForm").submit();
 	}
@@ -204,6 +213,20 @@ function edit(stuNumber){
 	i.name = "stuNumber";
 	f.action = "http://localhost:8080/struts/getStudentByNumber.action";
 	f.submit();
+}
+
+
+function deleteStu(stuNumber){
+	var f = document.createElement("form");
+	document.body.appendChild(f);
+	var i = document.createElement("input");
+	i.type = "hidden";
+	f.appendChild(i);
+	i.value = stuNumber;
+	i.name = "stuNumber";
+	f.action = "http://localhost:8080/struts/deleteStudentByNumber.action";
+	f.submit();
+	
 }
 
 	

@@ -71,12 +71,19 @@ public class SearchAction  extends ActionSupport {
 	}
 	
 	public String getStudentsByClassNumber(){
-		HttpServletRequest request = ServletActionContext.getRequest();
-		String classNumber = request.getParameter("classNumber");
-		SearchByHibernateService service = new SearchByHibernateService();
-		//Student stu = service.getStudentByNumber(stuNumber);
-		this.result = (ArrayList<Student>) service.getStudentByClassNumber(classNumber);
-		return "success";
+		
+		try{
+			HttpServletRequest request = ServletActionContext.getRequest();
+			String classNumber = request.getParameter("classNumber");
+			SearchByHibernateService service = new SearchByHibernateService();
+			//Student stu = service.getStudentByNumber(stuNumber);
+			this.result = (ArrayList<Student>) service.getStudentByClassNumber(classNumber);
+			return "success";
+		}catch(Exception e){
+			e.printStackTrace();
+			return "fail";
+		}
+		
 	}
 	
 

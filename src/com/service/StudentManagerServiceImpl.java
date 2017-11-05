@@ -1,5 +1,6 @@
 package com.service;
 
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -34,7 +35,13 @@ public class StudentManagerServiceImpl implements StudentManagerService {
 
 	@Override
 	public boolean addStudent(Student student) {
-		return false;
+		Session session = sessionFactory.openSession();
+		Transaction transaction = session.beginTransaction();
+		session.save(student);
+		transaction.commit();
+		session.close();
+		sessionFactory.close();
+		return true;
 	}
 
 	@Override
@@ -53,4 +60,29 @@ public class StudentManagerServiceImpl implements StudentManagerService {
 		return null;
 	}
 
+	
+	//删除学生实体
+	public boolean deleteStudentByNumber(String stuNumber){
+		Session session = sessionFactory.openSession();
+		//4.开启事物
+		Transaction transaction = session.beginTransaction();
+		//编写hql语句
+		//调用session.createQuery创建查询对象
+		//Query query = session.createQuery(hql);
+		Student student = new Student();
+		student.setStuNumber(stuNumber);
+		try{
+			session.delete(student);
+			transaction.commit();session.close();
+			sessionFactory.close();
+		}catch(Exception e){
+			e.printStackTrace();
+			session.close();
+			sessionFactory.close();
+			return false;
+		}
+		
+		
+		return true;
+	}
 }

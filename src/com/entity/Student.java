@@ -5,7 +5,7 @@ import com.entity.Grade;
 public class Student {
 	private String stuName;
 	private String stuNumber;
-	private int stuClassNumber;
+	private String stuClassNumber;
 	private int age;
 	private Grade grade;
 	//private Set<Grade> grade = new HashSet<Grade>();
@@ -39,11 +39,11 @@ public class Student {
 	}
 	
 	
-	public int getStuClassNumber() {
+	public String getStuClassNumber() {
 		return stuClassNumber;
 	}
 
-	public void setStuClassNumber(int stuClassNumber) {
+	public void setStuClassNumber(String stuClassNumber) {
 		this.stuClassNumber = stuClassNumber;
 	}
 	

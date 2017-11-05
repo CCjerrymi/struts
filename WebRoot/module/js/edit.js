@@ -10,7 +10,7 @@ function edit(){
 		url:"http://localhost:8080/struts/updateStudent.action?stuClassNumber=" + stuClassNumber + "&stuName=" + stuName + "&age=" + age + "&stuNumber=" + stuNumber,//请求地址
 		type:"POST",
 		success:function(){
-			alert("搜索成功！");
+			//alert("搜索成功！");
 			window.location.href = "http://localhost:8080/struts/module/html/search.jsp";
 		}
 	})

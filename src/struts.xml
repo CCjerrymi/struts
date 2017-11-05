@@ -25,11 +25,23 @@
 	</package>
 			
 	<package name="load" namespace="/" extends="struts-default">
-		<action name="upLoad" class="com.action.LoadAction" method="uploadFile">
-			
+		<action name="uploadFile" class="com.action.LoadAction" method="uploadFile">
+			<result name="success" type="redirect">/module/html/grade.jsp</result>
 		</action>
 		
-		<action name="downLoad" class="com.action.LoadAction" method="downloadFile">
+		<action name="downLoadAction" class="com.action.DownLoadAction">
+			<result type="stream">
+                <!--文件类型-->
+               <!--  <param name="contentType">application/octet-stream;charset=ISO8859-1</param> -->
+               <param name="contentType">${contentType}</param>
+                <!--指定文件名-->
+                <param name="contentDisposition">
+                    attachment;filename=${filename}
+                </param>
+                <!--输入流-->
+                <param name="inputName">downloadFile2</param>
+                <param name="bufferSize">4096</param>
+            </result>
 		
 		</action>
 			
@@ -40,17 +52,17 @@
 			<result name="success" type="redirect">/module/html/search.jsp</result>
 		</action>
 		<action name="addStudent" class="com.action.StudentManager" method="addStudent">
-			<result name="success" type="redirect">/module/html/search.jsp</result>
+			<result name="success" type="redirect">/module/html/grade.jsp</result>
 		</action>
-		<action name="deleteStudent" class="com.action.StudentManager" method="deleteStudent">
-			<result name="success" type="redirect">/module/html/search.jsp</result>
+		<action name="deleteStudentByNumber" class="com.action.StudentManager" method="deleteStudentByNumber">
+			<result name="success" type="redirect">/module/html/grade.jsp</result>
 		</action>
 			
 	</package>
 	
 	<package name="grade" namespace="/" extends="struts-default">
 		<action name="getAllGradeInfo" class="com.action.GradeMangerAction" method="getAllGradeInfo">
-			<result type="dispatcher">/module/html/grade.jsp</result>
+			<result type="redirect">/module/html/grade.jsp</result>
 		</action>
 		<action name="getStudentsByClassNumber" class="com.action.SearchAction" method="getStudentsByClassNumber">
 			<result name="success" type="redirect">/module/html/search.jsp</result>

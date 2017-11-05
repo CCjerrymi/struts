@@ -47,7 +47,7 @@ span{
 }
 
 .tableHead{
-	width:260px;
+	width:240px;
 	height:24px;
 }
 
@@ -79,5 +79,11 @@ span{
 	width:68px;
 	height:23px;
 	margin-right:10px;
+	
+}
+
+
+.opb{
+	border:none;
 	
 }

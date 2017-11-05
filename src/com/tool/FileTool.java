@@ -1,7 +1,9 @@
 package com.tool;
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileReader;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -13,7 +15,7 @@ import com.entity.Student;
 
 public class FileTool {
 	
-	public static List<Student> analysisFile(File file){
+/*	public static List<Student> analysisFile(File file){
 		String enconding = "UTF-8";
 		//存储从文件中读取出来的Student对象
 		List<Map<String,Object>> list = new ArrayList<Map<String,Object>>();
@@ -22,7 +24,7 @@ public class FileTool {
 			FileInputStream inputStream = new FileInputStream(file); 
 			int temp = 0;
 			String content = "",key="",value="";
-			Map<String,Object> map = null;
+			Map<String,Object> map = new HashMap<String,Object>();
 			
 			while((temp = inputStream.read()) != -1){
 				
@@ -34,7 +36,7 @@ public class FileTool {
 					}
 				}
 				
-				if(temp == 58){
+				if(temp == ':'){
 					//创建一个map，将读取到的信息存入
 					//map = new HashMap<String,Object>();
 					//赋值，清空
@@ -42,7 +44,7 @@ public class FileTool {
 					content = "";
 				}
 				
-				if(temp == 59){
+				if(temp == ';'){
 					value = content;
 					content = "";
 					
@@ -56,6 +58,33 @@ public class FileTool {
 				
 				
 			}
+				
+			
+			return analysisStudent(list);
+		}catch(Exception e){
+			e.printStackTrace();
+			return null;
+		}	
+	}*/
+	
+	public static List<Student> analysisFile(File file){
+		String enconding = "UTF-8";
+		//存储从文件中读取出来的Student对象
+		List<Map<String,Object>> list = new ArrayList<Map<String,Object>>();
+		try{
+			   FileReader fr=new FileReader(file);
+		       BufferedReader br=new BufferedReader(fr);
+		       String line="";
+		       String[] arrs=null;
+		        while ((line=br.readLine())!=null) {
+		          String[] str = line.split(";");
+		          Map<String,Object> map =new HashMap<String,Object>();
+		          for(String content : str){
+		        	  String[] string = content.split(":");
+		        	  map.put(string[0], string[1]);
+		          }
+		          list.add(map);
+		        }
 				
 			
 			return analysisStudent(list);
@@ -120,8 +149,8 @@ public class FileTool {
 			Map map = list.get(index);
 			String stuName = (String)map.get("stuName");
 			String stuNumber = (String)map.get("stuNumber");
-			int stuClassNumber = (int)map.get("stuClassNumber");
-			int age = (int)map.get("age");
+			String stuClassNumber = (String)map.get("stuClassNumber");
+			int age = Integer.parseInt((String) map.get("age"));
 			
 			Student student = new Student(stuName,stuNumber,age);
 			student.setStuClassNumber(stuClassNumber);

@@ -8,6 +8,7 @@ import org.springframework.webflow.engine.ActionList;
 import com.entity.Grade;
 import com.entity.Student;
 import com.opensymphony.xwork2.ModelDriven;
+import com.service.SearchByHibernateService;
 import com.service.StudentManagerServiceImpl;
 
 public class StudentManager extends ActionList  implements ModelDriven{
@@ -65,12 +66,13 @@ public class StudentManager extends ActionList  implements ModelDriven{
 	}
 	
 	public String execute  () throws Exception{
+		
 		HttpServletRequest request = ServletActionContext.getRequest();
 		String stuNumber = request.getParameter("stuNumber");
 		String stuName = request.getParameter("stuName");
 		System.out.println("request " + request.getParameter("stuName"));
 		int age = Integer.parseInt(request.getParameter("age"));
-		int stuClassNumber =Integer.parseInt(request.getParameter("stuClassNumber"));
+		String stuClassNumber =request.getParameter("stuClassNumber");
 		student.setStuClassNumber(stuClassNumber);
 		StudentManagerServiceImpl service = new StudentManagerServiceImpl();
 		if(service.updateStudent(student)){
@@ -79,6 +81,26 @@ public class StudentManager extends ActionList  implements ModelDriven{
 		
 		return "fail";
 		
+	}
+	
+	public String addStudent  () {
+		System.out.println("run here " + student.getStuName());
+		StudentManagerServiceImpl service = new StudentManagerServiceImpl();
+		if(service.addStudent(student)){
+			return "success";
+		}
+		
+		return "fail";	
+	}
+	
+	public String deleteStudentByNumber  () {
+		HttpServletRequest request = ServletActionContext.getRequest();
+		String number = request.getParameter("stuNumber");
+		StudentManagerServiceImpl service = new StudentManagerServiceImpl();
+		if( service.deleteStudentByNumber(number)){
+			return "success";
+		}
+		return "fail";
 	}
 	
 		
