@@ -18,6 +18,8 @@ var argumentFlag = 0;
 window.onload=function(){
 	//document.getElementById("upload").style.display = "hidden";
 	//加载的时候获取参数默认参数的类型
+	//解析连接，看是否是编辑修改的跳转
+	
 	argumentsChange();
 }
 
@@ -228,7 +230,8 @@ function deleteStu(stuNumber){
 	f.submit();
 	
 }
-
-	
+function backToGrade(){
+	window.location.href = "http://localhost:8080/struts/module/html/grade.jsp";
+}
 	
 

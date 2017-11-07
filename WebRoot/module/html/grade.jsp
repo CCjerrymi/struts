@@ -48,7 +48,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							<tr>
 								<td class="tableHead" id="classNumber"><%=grade.getClassNumber()%></th>
 		      				 	<td class="tableHead" id="className"><%=grade.getClassName()%></th>
-		        			  	<td class="tableHead" align="center">
+		        			  	<td class="buttonHead" align="center">
 		        			  		<input type="button" value = "查看学生" onclick="getStudents(<%=grade.getClassNumber()%>)"/>
 		        			  		<input type="button" value = "添加学生"  onclick="addStudent(<%=grade.getClassNumber()%>)"/>
 		        			  		<input type="button" value = "删除班级"  onclick="deleteGrade(<%=grade.getClassNumber()%>)"/>

@@ -3,15 +3,15 @@ package com.action;
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.struts2.ServletActionContext;
-import org.springframework.webflow.engine.ActionList;
 
 import com.entity.Grade;
 import com.entity.Student;
+import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 import com.service.SearchByHibernateService;
 import com.service.StudentManagerServiceImpl;
 
-public class StudentManager extends ActionList  implements ModelDriven{
+public class StudentManager extends ActionSupport  implements ModelDriven{
 	private Student student = new Student();
 	private String stuName;
 	private String stuNumber;

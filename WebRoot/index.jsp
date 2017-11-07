@@ -38,12 +38,19 @@
 						<td colspan="2" align="right"><input type="button" value="提交" onClick="login()"/></td>
 					</tr>				
 				</table> -->
-				<form action="login" method="post" name="form1" id="loginForm">
+			<form action="login" method="post" name="form1" id="loginForm">
  				用户名：
 				<s:textfield name="userName" />
  				密码：
  				<s:password name="password" />
  				<input type="button" onClick="login()" value="登录"/>
+			</form>
+			<form action="test" method="post" name="form1" id="loginForm">
+ 				用户名：
+				<s:textfield name="userName" />
+ 				密码：
+ 				<s:password name="password" />
+ 				<input type="submit"  value="测试"/>
 			</form>
 			
 		</div>

@@ -69,4 +69,11 @@
 		</action>
 	</package>
 	
+	
+	<package name="mytest" namespace="/" extends="struts-default">
+		<action name="test" class="com.action.TestAction">
+			<result type="redirect">/module/html/grade.jsp</result>
+		</action>
+	</package>
+	
 </struts>    

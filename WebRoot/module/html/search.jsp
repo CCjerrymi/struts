@@ -45,6 +45,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<li><input type="text" name="value" id="inputValue"/></li>
 					
 					<li><input type="button" name="search" value="查询" onclick="searchResult()"></li>
+					<li><input type="button" name="back" value="班级管理" onclick="backToGrade()"></li>
 					<!-- <a href="#">新增</a>		 -->	
 				</ul>	
 			</div>	
