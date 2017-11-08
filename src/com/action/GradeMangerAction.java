@@ -5,10 +5,12 @@ import java.util.List;
 
 import com.entity.Grade;
 import com.opensymphony.xwork2.ActionSupport;
-import com.service.GradeManagerServiceImpl;
+import com.service.GradeManagerService;
+import com.tool.BeanTool;
 
 public class GradeMangerAction extends ActionSupport{
 	private static List<Grade> grades = new ArrayList<Grade>();
+	private GradeManagerService gradeManagerServiceImpl;
 	
 	public List<Grade> getGrades() {
 		return grades;
@@ -20,9 +22,10 @@ public class GradeMangerAction extends ActionSupport{
 
 
 	public String getAllGradeInfo(){
-		GradeManagerServiceImpl service = new GradeManagerServiceImpl();
+		//GradeManagerServiceImpl service = new GradeManagerServiceImpl();
+		gradeManagerServiceImpl = (GradeManagerService) BeanTool.getBean("gradeManagerService"); 
 		try{
-			this.grades = service.getAllGradeInfo();
+			this.grades = gradeManagerServiceImpl.getAllGradeInfo();
 			System.out.println("Success!");
 			return "success";
 			

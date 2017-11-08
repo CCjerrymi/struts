@@ -8,8 +8,8 @@ import javax.annotation.Resource;
 import org.apache.struts2.ServletActionContext;
 
 import com.opensymphony.xwork2.ActionSupport;
+import com.service.ILoadService;
 import com.service.LoadService;
-import com.service.LoadServiceImpl;
 
 public class LoadAction extends ActionSupport {
 	private static final long serialVersionUID = 1L;
@@ -18,7 +18,7 @@ public class LoadAction extends ActionSupport {
 	private String fileContentType;
 	
 	@Resource(name="loadService")
-	LoadService loadservice;
+	ILoadService loadservice;
 
 	public File getFile() {
 		return file;
@@ -46,7 +46,7 @@ public class LoadAction extends ActionSupport {
 
 
 	public String uploadFile(){
-		LoadServiceImpl service = new LoadServiceImpl();
+		LoadService service = new LoadService();
 		service.upload(file);
 		return "success"; 
 	}

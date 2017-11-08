@@ -59,7 +59,7 @@ public class StudentDao implements IStudentDao {
 	}
 
 	@Override
-	public List<Student> getStudentsByclassNumber(int stuClassNumber) {
+	public List<Student> getStudentsByclassNumber(String stuClassNumber) {
 		String sql = "select * from student where stuClassNumber=?";
 		RowMapper<Student> rowMapper = ParameterizedBeanPropertyRowMapper.newInstance(Student.class);
 		return this.jdbcTemplate.query(sql, rowMapper);
@@ -70,6 +70,23 @@ public class StudentDao implements IStudentDao {
 		String sql = "select * from student where stuNumber=?";
 		RowMapper<Student> rowMapper = ParameterizedBeanPropertyRowMapper.newInstance(Student.class);
 		return this.jdbcTemplate.queryForObject(sql, rowMapper,stuNumber);
+	}
+
+	@Override
+	public List<Student> searchStudent(String argument, String operat,
+			String value) {
+		String sql = "from Student where ? ? ?";
+		if(operat.equals("like")){
+			sql = "from Student where ? ? %?%";
+		}
+		//存放sql语句
+		Object[] obj = new Object[]{
+				argument,
+				operat,
+				value
+		};
+		RowMapper<Student> rowMapper = ParameterizedBeanPropertyRowMapper.newInstance(Student.class);
+		return this.jdbcTemplate.query(sql, rowMapper,obj);
 	}
 
 }

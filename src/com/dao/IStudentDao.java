@@ -12,7 +12,9 @@ public interface IStudentDao {
 	//删除用户
 	public int deleteStudentByStuNumber(String stuNumber);
 	//根据班级查询学生
-	public List<Student> getStudentsByclassNumber(int stuClassNumber);
+	public List<Student> getStudentsByclassNumber(String stuClassNumber);
 	//根据学号查找学生
 	public Student getStudentByStuNumber(String stuNumber);
+	//
+	public List<Student> searchStudent(String argument,String operat,String value);
 }
