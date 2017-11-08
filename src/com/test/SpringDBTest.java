@@ -12,6 +12,7 @@ import com.entity.User;
 public class SpringDBTest {
 	
 
+	@Test
 	public void test(){
 		//定义配置文件的路径
 		String xmlPath = "com/config/beans.xml";
@@ -24,7 +25,7 @@ public class SpringDBTest {
 		System.out.println(student.toString());
 	}
 	
-	@Test
+	
 	public void test_1(){
 		//定义配置文件的路径
 		String xmlPath = "com/config/beans.xml";

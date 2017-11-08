@@ -9,7 +9,7 @@ import com.tool.BeanTool;
 
 public class LoginAction extends ActionSupport implements ModelDriven{
 	private User user = new User();
-	private LoginService loginServiceImpl;
+	private LoginService loginService;
 	
 	/*@Resource(name="loginService")
 	LoginService service;*/
@@ -26,11 +26,11 @@ public class LoginAction extends ActionSupport implements ModelDriven{
 		System.out.println("获取到的密码：" + user.getPassword());
 		
 		//LoginServiceImpl service = new LoginServiceImpl();
-		
-		loginServiceImpl = (LoginService) BeanTool.getBean("loginService");
+		//LoginService loginService = new LoginService();
+		loginService = (LoginService) BeanTool.getBean("loginService");
 		
 		try{
-			if(loginServiceImpl.Login(this.user.getUserName(),this.user.getPassword())){
+			if(loginService.Login(this.user.getUserName(),this.user.getPassword())){
 				System.out.println("登录成功");
 				return "success";
 			}else{
