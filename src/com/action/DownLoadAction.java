@@ -1,21 +1,48 @@
 package com.action;
 
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
+import java.util.ArrayList;
 
 import org.apache.struts2.ServletActionContext;
 
+import com.entity.Student;
 import com.opensymphony.xwork2.ActionSupport;
 import com.tool.BASE64Encoder;
 
 public class DownLoadAction extends ActionSupport{
 	   private String filename;
-	    private String contentType;
-
+	   private String contentType;
+	   private String filepath = "E:/download/struts2.txt";
+	    	
+	    public DownLoadAction(){
+	    	ArrayList<Student> list = SearchAction.result;
+	    
+	    	String content = "";
+	    	for(Student student:list){
+	    		content += "班级:" + student.getStuClassNumber() + ";姓名:" + student.getStuName() + ";学号:" + student.getStuNumber() + ";年龄:" + student.getAge() + "\n";
+	    	}
+	    	
+	    	try{
+	    		File file = new File(filepath);
+		    	FileWriter fw = new FileWriter(file.getAbsoluteFile());
+		    	BufferedWriter bw = new BufferedWriter(fw);
+		    	bw.write(content);
+		    	bw.close();
+	    	}catch(Exception e){
+	    		e.printStackTrace();
+	    	}
+	    	
+	    	
+	    	
+	    }
+	    
 	    public String getFilename() throws IOException{
 	        return encodeDownloadFilename(filename, ServletActionContext.getRequest().getHeader("User-Agent"));
 	    }
@@ -35,7 +62,6 @@ public class DownLoadAction extends ActionSupport{
 	    
 	   public InputStream getDownloadFile2() throws IOException{
 	    	System.out.println(filename);
-	         String filepath = "E:/download/struts2.txt";
 	        System.out.println(filepath);
 	        
 	        File file = new File(filepath);

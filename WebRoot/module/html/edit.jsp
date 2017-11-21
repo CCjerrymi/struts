@@ -50,7 +50,7 @@ Student student = SearchAction.temp;
     		  		</tr>
     		  		
     		  		<tr class="tableStyle">
-	    		  		<td align="center" colspan="2"><input type="button" value="确认" class="myButton" onclick="edit()"/><input type="button" value="取消" class="myButton" onclick="cancel()"/> </td>
+	    		  		<td align="center" colspan="2"><input type="button" value="确认" class="myButton" onclick="edit()"/>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input type="button" value="取消" class="myButton" onclick="cancel()"/> </td>
     		  			
     		  		</tr>
 	    			

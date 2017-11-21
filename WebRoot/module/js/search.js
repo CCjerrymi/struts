@@ -184,8 +184,8 @@ function downLoad(){
 //提供上传方法
 function upload(){
 	
-	let path = document.getElementById("file").value;
-	if(path=="" || file == null) {
+	let path = document.getElementById("okUp").value;
+	if(path=="" || path == null) {
 		alert("请选择文件！");
 	}else{
 		document.getElementById("fileForm").submit();

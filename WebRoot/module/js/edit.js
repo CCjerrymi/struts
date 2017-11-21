@@ -19,7 +19,7 @@ function edit(){
 			type:"POST",
 			success:function(){
 				//alert("搜索成功！");
-				window.location.href = "http://localhost:8080/struts/module/html/search.jsp";
+				window.location.href = "http://localhost:8080/struts/module/html/grade.jsp";
 			}
 		})
 	}
