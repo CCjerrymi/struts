@@ -11,7 +11,6 @@ public class MyTest {
 	
 	
 	//将对数据库的操作封装成一个工具类
-	@org.junit.Test
 	public void Test(){
 		//1.加载hibernate.cfg.xml配置
 		Configuration config = new Configuration().configure();

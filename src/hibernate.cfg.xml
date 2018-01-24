@@ -41,5 +41,7 @@
 		<mapping resource="com/mapper/Student.cfg.xml"/>
 		<mapping resource="com/mapper/User.cfg.xml"/>
 		<mapping resource="com/mapper/Grade.cfg.xml"/>
+		<mapping resource="com/mapper/Customer.cfg.xml"/>
+		<mapping resource="com/mapper/Orders.cfg.xml"/>
 	</session-factory>
 </hibernate-configuration>

@@ -5,7 +5,6 @@ import org.junit.Test;
 public class Work {
 	public int count = 0;
 	
-	@Test
 	public void entry(){
 		int num = 200;
 		Work test = new Work();
