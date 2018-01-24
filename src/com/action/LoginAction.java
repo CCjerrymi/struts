@@ -3,11 +3,13 @@ package com.action;
 import com.entity.User;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
-import com.service.LoginServiceImpl;
+import com.service.LoginService;
+import com.tool.BeanTool;
 
 
 public class LoginAction extends ActionSupport implements ModelDriven{
 	private User user = new User();
+	private LoginService loginService;
 	
 	/*@Resource(name="loginService")
 	LoginService service;*/
@@ -23,10 +25,12 @@ public class LoginAction extends ActionSupport implements ModelDriven{
 		System.out.println("获取到的用户名：" + user.getUserName());
 		System.out.println("获取到的密码：" + user.getPassword());
 		
-		LoginServiceImpl service = new LoginServiceImpl();
+		//LoginServiceImpl service = new LoginServiceImpl();
+		//LoginService loginService = new LoginService();
+		loginService = (LoginService) BeanTool.getBean("loginService");
 		
 		try{
-			if(service.Login(this.user.getUserName(),this.user.getPassword())){
+			if(loginService.Login(this.user.getUserName(),this.user.getPassword())){
 				System.out.println("登录成功");
 				return "success";
 			}else{

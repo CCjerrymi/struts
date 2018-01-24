@@ -9,7 +9,7 @@ import com.entity.Student;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 import com.service.SearchByHibernateService;
-import com.service.StudentManagerServiceImpl;
+import com.service.StudentManagerService;
 
 public class StudentManager extends ActionSupport  implements ModelDriven{
 	private Student student = new Student();
@@ -70,11 +70,13 @@ public class StudentManager extends ActionSupport  implements ModelDriven{
 		HttpServletRequest request = ServletActionContext.getRequest();
 		String stuNumber = request.getParameter("stuNumber");
 		String stuName = request.getParameter("stuName");
+		
 		System.out.println("request " + request.getParameter("stuName"));
+		
 		int age = Integer.parseInt(request.getParameter("age"));
 		String stuClassNumber =request.getParameter("stuClassNumber");
 		student.setStuClassNumber(stuClassNumber);
-		StudentManagerServiceImpl service = new StudentManagerServiceImpl();
+		StudentManagerService service = new StudentManagerService();
 		if(service.updateStudent(student)){
 			return "success";
 		}
@@ -85,7 +87,7 @@ public class StudentManager extends ActionSupport  implements ModelDriven{
 	
 	public String addStudent  () {
 		System.out.println("run here " + student.getStuName());
-		StudentManagerServiceImpl service = new StudentManagerServiceImpl();
+		StudentManagerService service = new StudentManagerService();
 		if(service.addStudent(student)){
 			return "success";
 		}
@@ -96,7 +98,7 @@ public class StudentManager extends ActionSupport  implements ModelDriven{
 	public String deleteStudentByNumber  () {
 		HttpServletRequest request = ServletActionContext.getRequest();
 		String number = request.getParameter("stuNumber");
-		StudentManagerServiceImpl service = new StudentManagerServiceImpl();
+		StudentManagerService service = new StudentManagerService();
 		if( service.deleteStudentByNumber(number)){
 			return "success";
 		}

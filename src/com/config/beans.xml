@@ -41,5 +41,29 @@
         class="com.dao.StudentDao">  
         <property name="jdbcTemplate" ref="jdbcTemplate" />  
     </bean> 
+    
+         <!-- 配置注入类   -->
+    <bean id="userDao"  
+        class="com.dao.UserDao"> 
+        <property name="jdbcTemplate" ref="jdbcTemplate" /> 
+    </bean>
+    
+     <bean id="gradeDao"  
+        class="com.dao.GradeDao"> 
+        <property name="jdbcTemplate" ref="jdbcTemplate" /> 
+    </bean>
+    
+    
+     <bean id="loginService"  
+        class="com.service.LoginService"> 
+     </bean>
+     
+     <bean id="gradeManagerService"  
+        class="com.service.GradeManagerService"> 
+     </bean>
+     
+      <bean id="studentManagerService"  
+        class="com.service.StudentManagerService"> 
+     </bean>
           
 </beans>

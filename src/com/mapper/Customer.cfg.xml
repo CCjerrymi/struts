@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.entity.Customer" table="customer">
+	
+		<id name="id" column="id">
+			<generator class="native"></generator>
+		</id>
+		<property name="name" column="name" type="string"/>
+		<property name="age" column="age" type="integer"/>
+		<property name="sex" column="sex" type="string"/>
+		<property name="city" column="city" type="string"/>
+		
+		<set name="orders" lazy="true">
+          <key column="id"/>
+          <one-to-many class="com.entity.Orders"/>
+        </set>
+
+	</class>
+</hibernate-mapping>
