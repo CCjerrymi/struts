@@ -13,7 +13,7 @@
     <dependency>
       <groupId>org.glassfish</groupId>
       <artifactId>bean-validator</artifactId>
-      <version>3.0-JBoss-4.0.2</version>
+      <version>4.0.2</version>
       <scope>provided</scope>
     </dependency>
 
@@ -112,7 +112,7 @@
     <dependency>
       <groupId>org.jboss.weld</groupId>
       <artifactId>weld-osgi-bundle</artifactId>
-      <version>1.0.1-SP3</version>
+      <version>1.0.1</version>
       <scope>provided</scope>
     </dependency>
     <dependency>
@@ -239,7 +239,7 @@
     <dependency>
       <groupId>jboss</groupId>
       <artifactId>javassist</artifactId>
-      <version>3.7.ga</version>
+      <version>3.7.0</version>
     </dependency>
 
     <!-- spring的配置从这里开始  -->
@@ -378,7 +378,7 @@
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-core</artifactId>
-            <version>3.6.10.Final</version>
+            <version>3.6.10</version>
         </dependency>
  
         <!-- 添加Log4J依赖 -->
@@ -398,7 +398,7 @@
         <dependency>
             <groupId>javassist</groupId>
             <artifactId>javassist</artifactId>
-            <version>3.12.0.GA</version>
+            <version>3.12.0</version>
         </dependency>
  
         <!-- mysql数据库的驱动包 -->
